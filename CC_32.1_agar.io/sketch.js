@@ -9,15 +9,18 @@ var zoom = 1;
 var curs;
 var max_width = 10000;
 var max_height = 10000;
+
 var leaves;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  blob = new Blob(0, 0, 64);
+  var start_radius = 64;
+  var spread;
+  blob = new Blob(0, 0, start_radius);
   curs = new CursorObj(0,0);
-  for (var i = 0; i < 50; i++) {
-    var x = random(-width,width);
-    var y = random(-height,height);
+  for (var i = 0; i < 100; i++) {
+    var x = random(-spread*start_radius,spread*start_radius);
+    var y = random(-spread*start_radius,spread*start_radius);
     food[i] = new Food(x, y, 30);
   }
 }
@@ -34,7 +37,7 @@ function draw() {
   background(0);
   // image(leaves, 0, 0);
 
-  if ((frameCount % 10 == 0) && (food.length < 60)) {
+  if ((frameCount % 40 == 0) && (food.length < 60)) {
     curr_x = blob.pos.x;
     curr_y = blob.pos.y;
     var x = random(-max_width,max_width);
