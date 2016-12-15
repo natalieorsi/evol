@@ -2,17 +2,17 @@
 // http://codingrainbow.com
 // http://patreon.com/codingrainbow
 // Code for: https://youtu.be/JXuxYMGe4KI
-
 function Blob(x, y, r) {
   this.pos = createVector(x, y);
   this.r = r;
   this.vel = createVector(0,0);
+  this.newvel = createVector(0,0);
+
 
   this.update = function() {
-    this.speed = 3
-    var newvel = createVector(mouseX-width/2, mouseY-height/2);
-    newvel.setMag(this.speed);
-    this.vel.lerp(newvel, 0.2);
+    this.speed = 1;
+    this.newvel.setMag(this.speed);
+    this.vel.lerp(curs.pos, 0.1);
     this.pos.add(this.vel);
   }
 
@@ -22,8 +22,8 @@ function Blob(x, y, r) {
       var sum = PI * this.r * this.r + PI * other.radius * other.radius;
       this.r = sqrt(sum / PI);
       //this.r += other.r;
-      console.log("Yum!")
-      this.speed += 1
+      console.log("Yum!");
+      this.speed += 1;
       return true;
     } else {
       return false;
