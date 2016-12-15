@@ -2,7 +2,7 @@
 
 function CursorObj(x, y) {
   this.pos = createVector(x, y);
-  this.speed = 50;
+  this.speed = 25;
 
   this.up = function() {
     this.pos.y -= this.speed;
