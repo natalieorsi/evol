@@ -35,6 +35,10 @@ function Blob(x, y, r) {
     ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
   }
 
+  this.constrain = function() {
+    blob.pos.x = constrain(blob.pos.x, -max_width, max_width)
+    blob.pos.y = constrain(blob.pos.y, -max_height, max_height)
+  }
   // this.stop = function() {
   //   this.newvel.setMag(0);
   //   curs.pos.x = this.pos.x;
