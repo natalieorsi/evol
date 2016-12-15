@@ -11,11 +11,13 @@ var curs;
 var max_width = 10000;
 var max_height = 10000;
 var yoff = 0.0;
+var specks_count = 0;
 
 var leaves;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
+  draw_map = new Surroundings();
   var start_radius = 64;
   var spread;
   blob = new Blob(0, 0, start_radius);
@@ -58,12 +60,20 @@ function draw() {
     max_height += blob.r;
   }
 
+  if ((frameCount%10 == 0) && (specks_count < 500)) {
+    var x = random(-max_width,max_width);
+    var y = random(-max_height,max_height);
+    for (var i = food.length-1; i >=0; i--) {
+      ellipse(x, y, this.r/1, this.r/1);
+    }
+  }
+
   translate(width/2, height/2);
   var newzoom = 64 / blob.r;
   zoom = lerp(zoom, newzoom, 0.1);
   scale(zoom);
   translate(-blob.pos.x, -blob.pos.y);
-
+  draw_map.show();
   for (var i = food.length-1; i >=0; i--) {
     food[i].move();
     food[i].show();
