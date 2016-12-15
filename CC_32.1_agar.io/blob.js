@@ -9,8 +9,9 @@ function Blob(x, y, r) {
   this.vel = createVector(0,0);
 
   this.update = function() {
+    this.speed = 3
     var newvel = createVector(mouseX-width/2, mouseY-height/2);
-    newvel.setMag(3);
+    newvel.setMag(this.speed);
     this.vel.lerp(newvel, 0.2);
     this.pos.add(this.vel);
   }
@@ -22,6 +23,7 @@ function Blob(x, y, r) {
       this.r = sqrt(sum / PI);
       //this.r += other.r;
       console.log("Yum!")
+      this.speed += 1
       return true;
     } else {
       return false;
