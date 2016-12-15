@@ -11,10 +11,10 @@ var zoom = 1;
 function setup() {
   createCanvas(600, 600);
   blob = new Blob(0, 0, 64);
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 50; i++) {
     var x = random(-width,width);
     var y = random(-height,height);
-    food[i] = new Food(x, y, 16);
+    food[i] = new Food(x, y, 30);
   }
 }
 

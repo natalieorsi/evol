@@ -21,6 +21,7 @@ function Blob(x, y, r) {
       var sum = PI * this.r * this.r + PI * other.r * other.r;
       this.r = sqrt(sum / PI);
       //this.r += other.r;
+      console.log("Yum!")
       return true;
     } else {
       return false;
