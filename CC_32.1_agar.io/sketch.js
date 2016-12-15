@@ -64,6 +64,7 @@ function draw() {
   translate(-blob.pos.x, -blob.pos.y);
 
   for (var i = food.length-1; i >=0; i--) {
+    food[i].move();
     food[i].show();
     if (blob.eats(food[i])) {
       food.splice(i, 1);
@@ -80,6 +81,8 @@ function draw() {
     danger[i].show();
   }
   blob.newvel = createVector(curs.pos.x/2, curs.pos.y/2);
+
+  blob.shake();
   blob.show();
   blob.update();
   blob.constrain();

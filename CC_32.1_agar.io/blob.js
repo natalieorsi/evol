@@ -20,6 +20,7 @@ function Blob(x, y, r) {
     var d = p5.Vector.dist(this.pos, other.pos);
     if (d < this.r + other.radius) {
       var sum = PI * this.r * this.r + PI * other.radius * other.radius;
+      
       this.r = sqrt(sum / PI);
       //this.r += other.r;
       console.log("Yum!");
@@ -39,6 +40,11 @@ function Blob(x, y, r) {
     blob.pos.x = constrain(blob.pos.x, -max_width, max_width)
     blob.pos.y = constrain(blob.pos.y, -max_height, max_height)
   }
+
+  this.shake = function() {
+    this.pos.x += random(-this.speed, this.speed);
+    this.pos.y += random(-this.speed, this.speed);
+  };
   // this.stop = function() {
   //   this.newvel.setMag(0);
   //   curs.pos.x = this.pos.x;
