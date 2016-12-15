@@ -5,6 +5,7 @@
 
 var blob;
 var food = [];
+var danger = [];
 var zoom = 1;
 var curs;
 var max_width = 10000;
@@ -21,7 +22,7 @@ function setup() {
   for (var i = 0; i < 100; i++) {
     var x = random(-spread*start_radius,spread*start_radius);
     var y = random(-spread*start_radius,spread*start_radius);
-    food[i] = new Food(x, y, 30);
+    food[i] = new Star(x, y, 30);
   }
 }
 
@@ -38,16 +39,22 @@ function draw() {
   // image(leaves, 0, 0);
 
   if ((frameCount % 40 == 0) && (food.length < 60)) {
+    var spread = 1;
     curr_x = blob.pos.x;
     curr_y = blob.pos.y;
     var x = random(-max_width,max_width);
     var y = random(-max_height,max_height);
     var r = random(30,3*blob.r/4);
-    food.push(new Food(x, y, blob.r/2));
+    food.push(new Star(x, y, blob.r/2));
   }
 
   if ((frameCount % 20 == 0) && (curs.speed > 10)) {
     curs.speed -= random(-4,4);
+  }
+
+  if ((blob.r > 1000) && (max_width<100000)){
+    max_width += blob.r;
+    max_height += blob.r;
   }
 
   translate(width/2, height/2);
@@ -61,6 +68,16 @@ function draw() {
     if (blob.eats(food[i])) {
       food.splice(i, 1);
     }
+  }
+
+  if (blob.r % 49 == 0){
+    var x = random(-max_width,max_width);
+    var y = random(-max_height,max_height);
+    var r = random(30,3*blob.r/4);
+    danger.push(new Spike(x, y, blob.r/2));
+  }
+  for (var i = danger.length-1; i >=0; i--) {
+    danger[i].show();
   }
   blob.newvel = createVector(curs.pos.x/2, curs.pos.y/2);
   blob.show();
