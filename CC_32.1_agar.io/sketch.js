@@ -10,6 +10,7 @@ var zoom = 1;
 var curs;
 var max_width = 10000;
 var max_height = 10000;
+var yoff = 0.0;
 
 var leaves;
 

@@ -20,7 +20,7 @@ function Blob(x, y, r) {
     var d = p5.Vector.dist(this.pos, other.pos);
     if (d < this.r + other.radius) {
       var sum = PI * this.r * this.r + PI * other.radius * other.radius;
-      
+
       this.r = sqrt(sum / PI);
       //this.r += other.r;
       console.log("Yum!");
@@ -31,10 +31,27 @@ function Blob(x, y, r) {
     }
   }
 
+  // this.show = function() {
+  //   fill(255);
+  //   ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
+  // }
+
   this.show = function() {
-    fill(255);
-    ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
-  }
+      beginShape();
+      var xoff = 0;
+      for (var a = 0; a < TWO_PI; a += 0.1) {
+        var offset = map(noise(xoff, yoff), 0, 1, -25, 25);
+        var r = this.r + offset;
+        var x = this.pos.x + r * cos(a);
+        var y = this.pos.y + r * sin(a);
+        vertex(x, y);
+        xoff += 0.1;
+        //ellipse(x, y, 4, 4);
+      }
+      endShape();
+      
+      yoff += 0.01;
+    }
 
   this.constrain = function() {
     blob.pos.x = constrain(blob.pos.x, -max_width, max_width)
