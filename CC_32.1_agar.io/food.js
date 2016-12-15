@@ -1,7 +1,6 @@
 // Inspired by CodingRainbow: https://youtu.be/JXuxYMGe4KI
 
 function Food(x, y, radius) {
-  yoff = 0.0
   this.pos = createVector(x, y);
   this.radius = radius;
   this.vel = createVector(0,0);
@@ -21,6 +20,5 @@ function Food(x, y, radius) {
     }
     endShape();
     pop();
-    yoff += 0.00;
   }
 }
