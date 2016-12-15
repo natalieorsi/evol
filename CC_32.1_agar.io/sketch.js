@@ -7,6 +7,8 @@ var blob;
 var food = [];
 var zoom = 1;
 var curs;
+var max_width = 10000;
+var max_height = 10000;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
@@ -30,11 +32,11 @@ function setup() {
 function draw() {
   background(0);
 
-  if ((frameCount % 100 == 0) && (food.length < 50)) {
+  if ((frameCount % 10 == 0) && (food.length < 60)) {
     curr_x = blob.pos.x;
     curr_y = blob.pos.y;
-    var x = random(-20*curr_x,20*curr_x);
-    var y = random(-20*curr_y,20*curr_y);
+    var x = random(-max_width,max_width);
+    var y = random(-max_height,max_height);
     food.push(new Food(x, y, blob.r/4));
   }
 
