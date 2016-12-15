@@ -39,18 +39,19 @@ function Blob(x, y, r) {
   this.show = function() {
       beginShape();
       var xoff = 0;
+      var noisy = 16;
       for (var a = 0; a < TWO_PI; a += 0.1) {
-        var offset = map(noise(xoff, yoff), 0, 1, -25, 25);
+        var offset = map(noise(xoff, yoff), 0, 1, -this.r/noisy, this.r/noisy);
         var r = this.r + offset;
         var x = this.pos.x + r * cos(a);
         var y = this.pos.y + r * sin(a);
         vertex(x, y);
-        xoff += 0.1;
+        xoff += 0.03*this.r;
         //ellipse(x, y, 4, 4);
       }
       endShape();
       
-      yoff += 0.01;
+      yoff += 0.03*this.r;
     }
 
   this.constrain = function() {
