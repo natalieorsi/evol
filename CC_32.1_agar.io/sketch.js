@@ -9,7 +9,7 @@ var zoom = 1;
 var curs;
 
 function setup() {
-  createCanvas(1200, 600);
+  createCanvas(window.innerWidth, window.innerHeight);
   blob = new Blob(0, 0, 64);
   curs = new CursorObj(0,0);
   for (var i = 0; i < 50; i++) {
@@ -18,6 +18,14 @@ function setup() {
     food[i] = new Food(x, y, 30);
   }
 }
+
+// window.onresize = function() {
+//   var w = window.innerWidth;
+//   var h = window.innerHeight;  
+//   canvas.size(w,h);
+//   width = w;
+//   height = h;
+// };
 
 function draw() {
   background(0);
