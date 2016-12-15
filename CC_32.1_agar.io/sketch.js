@@ -21,6 +21,14 @@ function setup() {
 function draw() {
   background(0);
 
+  if ((frameCount % 100 == 0) && (food.length < 50)) {
+    curr_x = blob.pos.x
+    curr_y = blob.pos.y
+    var x = random(-20*curr_x,20*curr_x);
+    var y = random(-20*curr_y,20*curr_y);
+    food.push(new Food(x, y, blob.r/4));
+  }
+
   translate(width/2, height/2);
   var newzoom = 64 / blob.r;
   zoom = lerp(zoom, newzoom, 0.1);
