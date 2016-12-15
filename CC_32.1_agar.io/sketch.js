@@ -38,6 +38,10 @@ function draw() {
     food.push(new Food(x, y, blob.r/4));
   }
 
+  if ((frameCount % 20 == 0) && (curs.speed > 10)) {
+    curs.speed -= random(-2,2);
+  }
+
   translate(width/2, height/2);
   var newzoom = 64 / blob.r;
   zoom = lerp(zoom, newzoom, 0.1);
@@ -72,5 +76,9 @@ function keyPressed() {
   if (keyCode === RIGHT_ARROW) {
     curs.right();
     console.log("RIGHT");
+  }
+  if (key == ' ') {
+    blob.stop();
+    console.log("STOP");
   }
 }

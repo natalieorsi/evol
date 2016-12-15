@@ -7,12 +7,12 @@ function Blob(x, y, r) {
   this.r = r;
   this.vel = createVector(0,0);
   this.newvel = createVector(0,0);
+  this.speed = 1;
 
 
   this.update = function() {
-    this.speed = 1;
     this.newvel.setMag(this.speed);
-    this.vel.lerp(curs.pos, 0.1);
+    this.vel.lerp(curs.pos, 0.2);
     this.pos.add(this.vel);
   }
 
@@ -23,7 +23,7 @@ function Blob(x, y, r) {
       this.r = sqrt(sum / PI);
       //this.r += other.r;
       console.log("Yum!");
-      this.speed += 1;
+      this.speed += 0;
       return true;
     } else {
       return false;
@@ -34,4 +34,10 @@ function Blob(x, y, r) {
     fill(255);
     ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
   }
+
+  // this.stop = function() {
+  //   this.newvel.setMag(0);
+  //   curs.pos.x = this.pos.x;
+  //   curs.pos.y = this.pos.y;
+  // }
 }
