@@ -92,6 +92,7 @@ function draw() {
   blob.newvel = createVector(curs.pos.x/2, curs.pos.y/2);
 
   curs.show();
+  curs.update();
   curs.constrain();
   //blob.shake();
   blob.show();
@@ -124,6 +125,9 @@ function keyPressed() {
   }
 }
 
+function keyReleased() {
+  curs.decel();
+}
 // function mousePressed() {
 //   curs.pos.x += mouseX/blob.r;
 //   curs.pos.y += mouseY/blob.r;

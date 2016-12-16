@@ -3,20 +3,63 @@
 
 function CursorObj(x, y) {
   this.pos = createVector(x, y);
-  this.speed = 1;
-
+  this.yvel = 1;
+  this.xvel = 1;
+  var speed_limit = 2.5;
+  this.sl_sq = speed_limit * speed_limit;
+  this.y_acc = 0;
+  this.x_acc = 0;
+  this.sensitivity = 1;
 
   this.up = function() {
-    this.pos.y -= this.speed;
+    new_speed = this.yvel - this.y_acc - this.sensitivity;
+    //Check if vectors sum to exceed speed (magnitude) limit
+    if ((new_speed * new_speed + this.xvel * this.xvel) < (this.sl_sq)) {
+      this.y_acc -= this.sensitivity;
+    }
   }
+
   this.down = function() {
-    this.pos.y += this.speed;
+    new_speed = this.yvel + this.y_acc + this.sensitivity;
+    //Check if vectors sum to exceed speed (magnitude) limit
+    if ((new_speed * new_speed + this.xvel * this.xvel) < (this.sl_sq)) {
+      this.y_acc += this.sensitivity;
+    }
   }
+
   this.left = function() {
-    this.pos.x -= this.speed;
+    new_speed = this.xvel - this.x_acc - this.sensitivity;
+    //Check if vectors sum to exceed speed (magnitude) limit
+    if ((new_speed * new_speed + this.yvel * this.yvel) < (this.sl_sq)) {
+      this.x_acc -= this.sensitivity;
+    }
   }
   this.right = function() {
-    this.pos.x += this.speed;
+    new_speed = this.xvel + this.x_acc + this.sensitivity;
+    //Check if vectors sum to exceed speed (magnitude) limit
+    if ((new_speed * new_speed + this.yvel * this.yvel) < (this.sl_sq)) {
+      this.x_acc += this.sensitivity;
+    }
+  }
+
+  this.update = function() {
+    this.pos.y += this.y_acc;
+    this.pos.x += this.x_acc;
+  }
+
+  this.decel = function() {
+    if (this.y_acc > 0) {
+      this.y_acc -= 1;
+    }
+    else if (this.y_acc < 0) {
+      this.y_acc += 1;
+    }
+    if (this.x_acc > 0) {
+      this.x_acc -= 1;
+    }
+    else if (this.x_acc < 0) {
+      this.x_acc += 1;
+    }
   }
 
   this.show = function() {
