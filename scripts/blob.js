@@ -28,6 +28,7 @@ function Blob(x, y, r) {
       var sum = PI * this.r * this.r + PI * other.radius * other.radius;
       this.r = sqrt(sum / PI);
       //this.r += other.r;
+      this.vibration += 0.001*other.radius;
       console.log("Yum!");
       return true;
     } else {

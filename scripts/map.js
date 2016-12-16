@@ -15,10 +15,10 @@ function Surroundings() {
   fill(leaf_r, leaf_g, leaf_b);
   leaf.show();
   //borders
-  ellipse(-max_width,max_height,blob.r,blob.r);
-  ellipse(max_width,max_height,blob.r,blob.r);
-  ellipse(-max_width,-max_height,blob.r,blob.r);
-  ellipse(max_width,-max_height,blob.r,blob.r);
+  // ellipse(-max_width,max_height,blob.r,blob.r);
+  // ellipse(max_width,max_height,blob.r,blob.r);
+  // ellipse(-max_width,-max_height,blob.r,blob.r);
+  // ellipse(max_width,-max_height,blob.r,blob.r);
   //+y axis points "down" relative to start
   //-y axis points "up" relative to start
   //-x axis points "left" relative to start, etc.

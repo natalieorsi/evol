@@ -10,7 +10,7 @@ var initial_width = 1000;
 var max_width = initial_width;
 var max_height = max_width;
 var yoff = 0.0;
-var specks_count = 0;
+var specks = [];
 var start_radius = 30;
 var leaves;
 
@@ -36,8 +36,8 @@ function setup() {
 // };
 
 function draw() {
-  //Other bg colors: (0), (49,0,73)
-  background(0,55,21);
+  //Other bg colors: (0), (49,0,73), (0,55,21), (25,51,0);
+  background(0);
   // image(leaves, 0, 0);
 
   if ((frameCount % 40 == 0) && (food.length < 20)) {
@@ -59,13 +59,19 @@ function draw() {
     max_height = initial_width + blob.r/2;
   }
 
-  // if ((frameCount%10 == 0) && (specks_count < 500)) {
+  //Specks, to help orient the user
+  // if ((frameCount%10 == 0) && (specks.length < 500)) {
   //   var x = random(-max_width,max_width);
   //   var y = random(-max_height,max_height);
   //   for (var i = food.length-1; i >=0; i--) {
-  //     ellipse(x, y, this.r/1, this.r/1);
+  //     specks.push(ellipse(x, y, blob.r/1, blob.r/1));
   //   }
   // }
+
+  // for (var i = specks.length-1; i >=0; i--) {
+  //   specks[i];
+  // }
+
 
   translate(width/2, height/2);
   var newzoom = 64 / blob.r;
