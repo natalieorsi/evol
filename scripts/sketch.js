@@ -88,11 +88,14 @@ function draw() {
     }
   }
 
-  if ((frameCount % 490 == 0) && (blob.r > 100) && (danger.length < blob.r/3)) {
+  if ((blob.r > start_radius) && (danger.length < blob.r/10)) {
+    var roll = random(0,10);
     var x = random(-max_width,max_width);
     var y = random(-max_height,max_height);
-    var r = random(30,3*blob.r/4);
-    danger.push(new Spike(x, y, blob.r/2));
+    var r = random(blob.r*0.1,blob.r);
+    if (true) {
+      danger.push(new Spike(x, y, r));
+    }
   }
   for (var i = danger.length-1; i >=0; i--) {
     danger[i].show();

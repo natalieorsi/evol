@@ -11,7 +11,7 @@ function Spike(x, y, radius) {
     // ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
     push();
     rotate(frameCount / 200.0);
-    star(x, y, 5, 70, 3); 
+    star(x, y, 5, radius, 3); 
     pop();
   }
 }
