@@ -12,6 +12,7 @@ function Blob(x, y, r) {
   this.update = function() {
     newvel = createVector(curs.pos.x-height/2, curs.pos.y-height/2);
     this.newvel.setMag(this.speed);
+    this.vel.lerp(curs.pos, 0.9);
     this.pos.add(this.vel);
   }
 
