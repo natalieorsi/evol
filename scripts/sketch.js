@@ -46,8 +46,8 @@ function draw() {
     curr_y = blob.pos.y;
     var x = random(-max_width,max_width);
     var y = random(-max_height,max_height);
-    var r = random(start_radius/3, blob.r/8);
-    food.push(new Star(x, y, blob.r/3));
+    var r = random(start_radius/3, blob.r/16);
+    food.push(new Star(x, y, r));
   }
 
   if ((frameCount % 20 == 0) && (curs.speed > 10)) {
