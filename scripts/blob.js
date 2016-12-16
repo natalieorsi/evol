@@ -4,9 +4,15 @@
 function Blob(x, y, r) {
   this.pos = createVector(x, y);
   this.r = r;
+  //Speed control:
   this.vel = createVector(0,0);
   this.newvel = createVector(0,0);
   this.speed = 1;
+  //For evolution:
+  this.shell = 1;
+  this.polygons = 1;
+  this.noisy = 16;
+  this.vibration = 0.03 * this.r;
 
 
   this.update = function() {
@@ -37,19 +43,18 @@ function Blob(x, y, r) {
   this.show = function() {
       beginShape();
       var xoff = 0;
-      var noisy = 16;
-      for (var a = 0; a < TWO_PI; a += 0.1) {
-        var offset = map(noise(xoff, yoff), 0, 1, -this.r/noisy, this.r/noisy);
+      for (var a = 0; a < this.shell * TWO_PI; a += 0.1 * this.polygons) {
+        var offset = map(noise(xoff, yoff), 0, 1, -this.r/this.noisy, this.r/this.noisy);
         var r = this.r + offset;
         var x = this.pos.x + r * cos(a);
         var y = this.pos.y + r * sin(a);
         vertex(x, y);
-        xoff += 0.03*this.r;
+        xoff += this.vibration;
         //ellipse(x, y, 4, 4);
       }
       endShape();
       
-      yoff += 0.03*this.r;
+      yoff += 0.03*this.vibration;
     }
 
   this.constrain = function() {

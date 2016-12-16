@@ -18,8 +18,8 @@ function draw() {
 
   beginShape();
   var xoff = 0;
-  for (var a = 0; a < TWO_PI * 8 ; a += 0.1) {
-    var offset = map(noise(xoff, yoff), 3, 1, -25, 25);
+  for (var a = 0; a < TWO_PI; a += 0.1) {
+    var offset = map(noise(xoff, yoff), 0, 1, -radius/6, radius/6);
     var r = radius + offset;
     var x = r * cos(a);
     var y = r * sin(a);
