@@ -36,7 +36,8 @@ function setup() {
 // };
 
 function draw() {
-  background(0);
+  //Other bg colors: (0), (49,0,73)
+  background(0,55,21);
   // image(leaves, 0, 0);
 
   if ((frameCount % 40 == 0) && (food.length < 20)) {
@@ -72,7 +73,7 @@ function draw() {
   scale(zoom);
   translate(-blob.pos.x, -blob.pos.y);
   draw_map.show();
-  
+
   for (var i = food.length-1; i >=0; i--) {
     food[i].move();
     food[i].show();

@@ -64,7 +64,7 @@ function CursorObj(x, y) {
 
   this.show = function() {
     fill(255);
-    ellipse(this.pos.x, this.pos.y, blob.r/3, blob.r/3);
+    ellipse(this.pos.x, this.pos.y, 1, 1);
   }
 
   this.constrain = function() {
