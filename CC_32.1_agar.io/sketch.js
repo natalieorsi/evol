@@ -95,7 +95,7 @@ function draw() {
 
   curs.show();
   curs.constrain();
-  blob.shake();
+  //blob.shake();
   blob.show();
   blob.update();
   blob.constrain();
