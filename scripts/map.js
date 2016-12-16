@@ -1,11 +1,19 @@
 //Created and maintained by Natalie Orsi at http://natalieorsi.net
 
 function Surroundings() {
-  
+  var leaf_r = random(170,226);
+  var leaf_g = random(220,226);
+  var leaf_b = random(170,222);
   
   this.show = function() {
   var limits = new Rect(-max_width,-max_height,max_width,-max_height,max_width,max_height,-max_width,max_height);
   limits.show();
+
+  var leaf = new Leaf(0, 0, 60);
+  //random shade of green
+  
+  fill(leaf_r, leaf_g, leaf_b);
+  leaf.show();
   //borders
   ellipse(-max_width,max_height,blob.r,blob.r);
   ellipse(max_width,max_height,blob.r,blob.r);

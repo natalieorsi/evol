@@ -72,6 +72,7 @@ function draw() {
   scale(zoom);
   translate(-blob.pos.x, -blob.pos.y);
   draw_map.show();
+  
   for (var i = food.length-1; i >=0; i--) {
     food[i].move();
     food[i].show();
