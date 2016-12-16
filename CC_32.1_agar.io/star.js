@@ -13,7 +13,7 @@ function Star(x, y, radius) {
     translate(this.pos.x, this.pos.y);
     beginShape();
     for (var a = 0; a < TWO_PI; a += 0.1) {
-      var offset = map(sin(a*100 + frameCount * 0.1), 0, 1, -25, 25);
+      var offset = map(sin(a*10 + frameCount * 0.1), 0, 1, -radius*2, radius*2);
       var r = this.radius + offset;
       var x = r * cos(a);
       var y = r * sin(a);
