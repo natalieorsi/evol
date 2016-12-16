@@ -37,5 +37,6 @@ function Rect(point1x,point1y,point2x,point2y,point3x,point3y,point4x,point4y) {
     line(this.p3x, this.p3y, this.p4x, this.p4y);
     line(this.p4x, this.p4y, this.p1x, this.p1y);
   }
-  
+
 }
+

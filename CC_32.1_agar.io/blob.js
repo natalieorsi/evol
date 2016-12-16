@@ -11,8 +11,9 @@ function Blob(x, y, r) {
 
 
   this.update = function() {
+    newvel = createVector(curs.pos.x-height/2, curs.pos.y-height/2);
     this.newvel.setMag(this.speed);
-    this.vel.lerp(curs.pos, 0.2);
+    this.vel.lerp(curs.pos, 0.1);
     this.pos.add(this.vel);
   }
 
@@ -20,11 +21,9 @@ function Blob(x, y, r) {
     var d = p5.Vector.dist(this.pos, other.pos);
     if (d < this.r + other.radius) {
       var sum = PI * this.r * this.r + PI * other.radius * other.radius;
-
       this.r = sqrt(sum / PI);
       //this.r += other.r;
       console.log("Yum!");
-      this.speed += 0;
       return true;
     } else {
       return false;
@@ -60,8 +59,8 @@ function Blob(x, y, r) {
   }
 
   this.shake = function() {
-    this.pos.x += random(-this.speed, this.speed);
-    this.pos.y += random(-this.speed, this.speed);
+    this.pos.x += random(-this.speed/2, this.speed/2);
+    this.pos.y += random(-this.speed/2, this.speed/2);
   };
   // this.stop = function() {
   //   this.newvel.setMag(0);
