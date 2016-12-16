@@ -10,6 +10,10 @@ function Star(x, y, radius) {
     //fill(233,0,233);
     // ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
     push();
+    var r = random(0,100);
+    var g = random(0,100);
+    var b = random(0,100);
+    stroke(r,g,b);
     translate(this.pos.x, this.pos.y);
     beginShape();
     for (var a = 0; a < TWO_PI; a += 0.1) {

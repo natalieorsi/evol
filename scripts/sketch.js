@@ -1,7 +1,5 @@
-// Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
-// Code for: https://youtu.be/JXuxYMGe4KI
+// Initial project inspired by http://codingrainbow.com
+//Created and maintained by Natalie Orsi at http://natalieorsi.net
 
 var blob;
 var food = [];

@@ -1,7 +1,6 @@
-// Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
-// Code for: https://youtu.be/JXuxYMGe4KI
+// Blob based on a coding challenge at http://codingrainbow.com
+//Created and maintained by Natalie Orsi at http://natalieorsi.net
+
 function Blob(x, y, r) {
   this.pos = createVector(x, y);
   this.r = r;

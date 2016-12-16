@@ -1,3 +1,5 @@
+//Created and maintained by Natalie Orsi at http://natalieorsi.net
+
 function Surroundings() {
   
   

@@ -1,4 +1,5 @@
 // Inspired by CodingRainbow: https://youtu.be/JXuxYMGe4KI
+//Created and maintained by Natalie Orsi at http://natalieorsi.net
 
 function CursorObj(x, y) {
   this.pos = createVector(x, y);
